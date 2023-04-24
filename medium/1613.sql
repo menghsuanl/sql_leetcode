@@ -1,4 +1,4 @@
-#1613
+
 -- use recursive CTE to list all consecutive num till the max
 WITH RECURSIVE id_seq AS (
 SELECT 1 as continued_id
