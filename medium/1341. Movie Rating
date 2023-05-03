@@ -1,0 +1,22 @@
+# Write your MySQL query statement below
+-- do the two separately and combine them by union
+-- find the super rater
+-- NEED PARANTHESIS() OF 2 SUBQUERIES!
+(SELECT
+u.name AS results
+FROM MovieRating r
+LEFT JOIN Users u
+ON r.user_id = u.user_id
+GROUP BY r.user_id, u.name
+ORDER BY COUNT(*) DESC, u.name
+LIMIT 1)
+UNION
+(SELECT
+m.title AS results
+FROM MovieRating r
+LEFT JOIN Movies m
+ON r.movie_id = m.movie_id
+WHERE substring(r.created_at,1,7) = '2020-02'
+GROUP BY r.movie_id, m.title
+ORDER BY AVG(r.rating) DESC, m.title
+LIMIT 1)
