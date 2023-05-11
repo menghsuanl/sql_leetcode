@@ -1,2 +1,2 @@
 # sql_leetcode
-My leetcode practices.
+My leetcode practices. 
